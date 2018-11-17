@@ -73,7 +73,7 @@ Module.register("MMM-Hue", {
                 console.debug(groupName, groupName.includes('hgrp'));
 
                 if (this.config.showOnlyOn) {
-                    if (this.config.hideSpecificGroups && !groupName.includes(this.config.hideGroupsWithString)) {
+                    if (this.config.hideSpecificGroups && !groupName.includes(this.config.hideGroupsWithString) && !groupName.includes("Group for")) {
                         if (this.result[lamps[i]].state.all_on || this.result[lamps[i]].state.any_on) {
                             domAction(this.result,lamps[i],this.config);
                         }
@@ -81,7 +81,7 @@ Module.register("MMM-Hue", {
                         domAction(this.result,lamps[i],this.config);
                     }
                 } else {
-                    if (this.config.hideSpecificGroups && !groupName.includes(this.config.hideGroupsWithString)) {
+                    if (this.config.hideSpecificGroups && !groupName.includes(this.config.hideGroupsWithString) && !groupName.includes("Group for")) {
                         domAction(this.result,lamps[i],this.config);
                     } else if (!this.config.hideSpecificGroups) {
                         domAction(this.result,lamps[i],this.config);
